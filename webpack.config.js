@@ -1,9 +1,10 @@
 const path = require('path');
-const {webpack} = require("webpack");
+const webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: [
-		'./js/index.js',
+		'./src/index.js',
 	],
 	output: {
 		filename: './bundle.js'
@@ -20,6 +21,16 @@ module.exports = {
 				}
 			}
 		},
+			{
+				test: /\.css$/,
+				use: [{
+					// inject CSS to page
+					loader: 'style-loader'
+				}, {
+					// translates CSS into CommonJS modules
+					loader: 'css-loader'
+				}]
+			}
 		]
 	},
 	plugins: [
@@ -28,6 +39,7 @@ module.exports = {
 			jQuery: 'jquery',
 			'window.jQuery': 'jquery',
 			Popper: ['popper.js', 'default']
-		})
+		}),
+		new HtmlWebpackPlugin()
 	]
 };

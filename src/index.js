@@ -1,3 +1,6 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
+
 $(document).ready(function () {
 	$("#myform").change(function() {
 		let checkFields = [$.trim($('#name').val()),
@@ -15,24 +18,26 @@ $(document).ready(function () {
 		$.each(checkFields, function (index, value) {
 			if (value.length > 0) {
 				i++;
-				// console.log('value не пустое, value = ', value, ', i = ', i);
-			} else {
-				// console.log('value пустое, value = ', value);
-			}
+			} else {}
 		})
 		console.log($('#password').val() === $('#password-confirm').val());
 		if($('#password').val() === $('#password-confirm').val()) {
 			$('.pass_confirm').removeClass('has-error');
-			console.log('пароли совпадают');
 		} else {
 			$('.pass_confirm').addClass('has-error');
-			console.log('пароли не совпадают');
 		}
-		if (i >= 10 && checkbox === true) {
+		if (i >= 10 && checkbox === true && $('.pass_confirm').hasClass('has-error') === false) {
 			$('#submit').prop('disabled', false);
 		} else {
 			$('#submit').prop('disabled', true);
 		}
+	});
+	$('#myform').on ('submit', function (event){
+		event.preventDefault ();
+		event.stopImmediatePropagation ();
+
+		$('form').css('display', 'none');
+		$('h3').css('display', 'block');
 	});
 });
 
