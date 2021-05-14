@@ -11,6 +11,8 @@
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+	        integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
 	        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -19,39 +21,42 @@
 	<div class="container">
 		<form role="form" class="form-horizontal" id="myform">
 			<div class="form-group">
-				<label for="name" class="control-label col-sm-3 col-sm-offset-1">ФИО</label>
-				<div class="col-sm-5">
-					<input type="text" class="form-control" id="name" placeholder="Фамилия Имя Отчество">
+				<label for="name" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">ФИО</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="text" class="form-control" id="name" placeholder="Фамилия Имя Отчество" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="bdate" class="control-label col-sm-3 col-sm-offset-1">Дата рождения</label>
-				<div class="col-sm-5">
-					<input type="date" class="form-control" id="bdate" placeholder="Дата рождения">
+				<label for="bdate" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Дата рождения</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="date" class="form-control" id="bdate" placeholder="Дата рождения" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="email" class="control-label col-sm-3 col-sm-offset-1">Email</label>
-				<div class="col-sm-5">
-					<input type="email" class="form-control" id="email" placeholder="Введите email">
+				<label for="email" class="control-label col-sm-4  col-xs-2 col-xs-offset-2 col-sm-offset-0 text-right ">Email</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="email" class="form-control" id="email" placeholder="Введите email" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="password" class="control-label col-sm-3 col-sm-offset-1">Пароль</label>
-				<div class="col-sm-5">
-					<input type="password" class="form-control" id="password" placeholder="Введите пароль">
+				<label for="password" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Пароль</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="password" class="form-control" id="password" placeholder="Введите пароль" required>
+				</div>
+			</div>
+			<div class="form-group pass_confirm">
+				<label for="password-confirm" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Подтверждение пароля</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="password" class="form-control" id="password-confirm" placeholder="Введите пароль ещё раз" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="password-confirm" class="control-label col-sm-3 col-sm-offset-1">Подтверждение пароля</label>
-				<div class="col-sm-5">
-					<input type="password" class="form-control" id="password-confirm" placeholder="Введите пароль ещё раз">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="control-label col-sm-3 col-sm-offset-1">Секретный вопрос</label>
-				<div class="col-sm-5">
-					<select class="form-control">
+				<label class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Секретный вопрос</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<select class="form-control" id="secret-question" required>
+						<option value="">
+							Выбрать вопрос
+						</option>
 						<option>
 							Какое прозвище было у вас в детстве?
 						</option>
@@ -78,40 +83,41 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="secret-answer" class="control-label col-sm-3 col-sm-offset-1">Ответ на секретный вопрос</label>
-				<div class="col-sm-5">
-					<input type="text" class="form-control" id="secret-answer" placeholder="Ответ на секретный вопрос">
+				<label for="secret-answer" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Ответ на секретный вопрос</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="text" class="form-control" id="secret-answer" placeholder="Ответ на секретный вопрос" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="address" class="control-label col-sm-3 col-sm-offset-1">Адрес</label>
-				<div class="col-sm-5">
-					<input type="text" class="form-control" id="address" placeholder="Адрес">
+				<label for="address" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Адрес</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="text" class="form-control" id="address" placeholder="Адрес" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="city" class="control-label col-sm-3 col-sm-offset-1">Город</label>
-				<div class="col-sm-5">
-					<input type="text" class="form-control" id="city" placeholder="Город">
+				<label for="city" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Город</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="text" class="form-control" id="city" placeholder="Город" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="phone" class="control-label col-sm-3 col-sm-offset-1">Телефон</label>
-				<div class="col-sm-5">
-					<input type="tel" class="form-control" id="phone" placeholder="Телефон">
+				<label for="phone" class="control-label col-sm-4 col-xs-offset-2 col-sm-offset-0">Телефон</label>
+				<div class="col-xs-8 col-sm-5 col-xs-offset-2 col-sm-offset-0">
+					<input type="tel" class="form-control" id="phone" placeholder="Телефон" required>
 				</div>
 			</div>
 			<div class="form-group">
-				<div class="col-sm-offset-4">
+				<div class="col-xs-offset-2 col-sm-offset-4">
 					<label>
-						<input type="checkbox"> Соглашение с политикой портала
+						<input type="checkbox" id="checkbox" required> Соглашение с политикой портала
 					</label>
 				</div>
 			</div>
-			<button type="button" class="btn btn-success register-btn col-sm-offset-4" disabled>Зарегистрироваться</button>
-			<button type="button" class="btn btn-warning" onclick="resetForm()">Отмена</button>
+			<button type="submit" id="submit" class="btn btn-success col-xs-offset-2 col-sm-offset-4" disabled>Зарегистрироваться</button>
+			<button type="reset" class="btn btn-warning">Отмена</button>
 		</form>
 	</div>
-<script src="js/index.js"></script>
+	<script src="js/jquery.maskedinput.min.js"></script>
+	<script src="js/index.js"></script>
 </body>
 </html>
